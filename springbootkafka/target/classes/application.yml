@@ -1,0 +1,21 @@
+server:
+  servlet:
+    context-path: /
+  port: 8081
+spring:
+  kafka:
+    producer:
+      bootstrap-servers: 192.168.6.71:9092
+      batch-size: 10
+      retries: 0
+      buffer-memory: 33554432
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      bootstrap-servers: 192.168.6.71:9092
+      auto-offset-reset: earliest
+      enable-auto-commit: true
+      auto-commit-interval: 100
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      group-id: test1
